@@ -47,8 +47,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\ParkingManagementBLL.cs" />
+    <Compile Include="CarEntryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarEntryForm.Designer.cs">
+      <DependentUpon>CarEntryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CarParkingOutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarParkingOutForm.Designer.cs">
+      <DependentUpon>CarParkingOutForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAL\ParkingManagementDAL.cs" />
+    <Compile Include="Helpers\CarParkingInfo.cs" />
+    <Compile Include="Helpers\ComboboxItem.cs" />
+    <Compile Include="Helpers\Log.cs" />
+    <Compile Include="Helpers\ScheduleInfo.cs" />
     <Compile Include="Helpers\SubscriberInfo.cs" />
+    <Compile Include="Helpers\Subscription.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,12 +74,36 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControls\DefinitionSubscriberInfo.cs">
+    <Compile Include="UserControls\CarParkingUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\DefinitionSubscriberInfo.Designer.cs">
-      <DependentUpon>DefinitionSubscriberInfo.cs</DependentUpon>
+    <Compile Include="UserControls\CarParkingUserControl.Designer.cs">
+      <DependentUpon>CarParkingUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\CreateSubscriptionsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CreateSubscriptionsUserControl.Designer.cs">
+      <DependentUpon>CreateSubscriptionsUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DefineScheduleUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DefineScheduleUserControl.Designer.cs">
+      <DependentUpon>DefineScheduleUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DefinitionSubscriberInfoUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DefinitionSubscriberInfoUserControl.Designer.cs">
+      <DependentUpon>DefinitionSubscriberInfoUserControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CarEntryForm.resx">
+      <DependentUpon>CarEntryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CarParkingOutForm.resx">
+      <DependentUpon>CarParkingOutForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -75,8 +116,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserControls\DefinitionSubscriberInfo.resx">
-      <DependentUpon>DefinitionSubscriberInfo.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\CarParkingUserControl.resx">
+      <DependentUpon>CarParkingUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CreateSubscriptionsUserControl.resx">
+      <DependentUpon>CreateSubscriptionsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DefineScheduleUserControl.resx">
+      <DependentUpon>DefineScheduleUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DefinitionSubscriberInfoUserControl.resx">
+      <DependentUpon>DefinitionSubscriberInfoUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

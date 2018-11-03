@@ -1,0 +1,77 @@
+﻿namespace ParkingManagementSystem.UserControls
+{
+    partial class CarParkingUserControl
+    {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Component Designer generated code
+
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.carParkingMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.carParkingEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.carParkingOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.carParkingMenuStrip.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // carParkingMenuStrip
+            // 
+            this.carParkingMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.carParkingEntryToolStripMenuItem,
+            this.carParkingOutToolStripMenuItem});
+            this.carParkingMenuStrip.Name = "carParkingMenuStrip";
+            this.carParkingMenuStrip.Size = new System.Drawing.Size(223, 70);
+            // 
+            // carParkingEntryToolStripMenuItem
+            // 
+            this.carParkingEntryToolStripMenuItem.Name = "carParkingEntryToolStripMenuItem";
+            this.carParkingEntryToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.carParkingEntryToolStripMenuItem.Text = "Araç Girişi";
+            this.carParkingEntryToolStripMenuItem.Click += new System.EventHandler(this.carParkingEntryToolStripMenuItem_Click);
+            // 
+            // carParkingOutToolStripMenuItem
+            // 
+            this.carParkingOutToolStripMenuItem.Name = "carParkingOutToolStripMenuItem";
+            this.carParkingOutToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.carParkingOutToolStripMenuItem.Text = "Araç Çıkışı ve Ücretlendirme";
+            this.carParkingOutToolStripMenuItem.Click += new System.EventHandler(this.carParkingOutToolStripMenuItem_Click);
+            // 
+            // CarParkingUserControl
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Name = "CarParkingUserControl";
+            this.Size = new System.Drawing.Size(648, 517);
+            this.carParkingMenuStrip.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.ContextMenuStrip carParkingMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem carParkingEntryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem carParkingOutToolStripMenuItem;
+    }
+}

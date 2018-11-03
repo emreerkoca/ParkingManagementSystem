@@ -32,16 +32,16 @@
             this.tanımlamalarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.defineSubscriberInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createSubscriptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tarifeTanımlaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.defineScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.araçGirişÇıkışToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.araçGirişiEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.insertParkingEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.araçÇıkışıVeÜcretlendirmeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.raporlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.birPlakayaAitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.otoparktakiAraçlarıGösterenRaporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aktifOlarakAboneliğiDevamEdenAbonelerRaporuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aylıkOtoparkKazançRaporuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlMain = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +62,7 @@
             this.tanımlamalarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.defineSubscriberInfoToolStripMenuItem,
             this.createSubscriptionsToolStripMenuItem,
-            this.tarifeTanımlaToolStripMenuItem});
+            this.defineScheduleToolStripMenuItem});
             this.tanımlamalarToolStripMenuItem.Name = "tanımlamalarToolStripMenuItem";
             this.tanımlamalarToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
             this.tanımlamalarToolStripMenuItem.Text = "Tanımlamalar";
@@ -81,26 +81,28 @@
             this.createSubscriptionsToolStripMenuItem.Text = "Abonelik Oluştur";
             this.createSubscriptionsToolStripMenuItem.Click += new System.EventHandler(this.createSubscriptionsToolStripMenuItem_Click);
             // 
-            // tarifeTanımlaToolStripMenuItem
+            // defineScheduleToolStripMenuItem
             // 
-            this.tarifeTanımlaToolStripMenuItem.Name = "tarifeTanımlaToolStripMenuItem";
-            this.tarifeTanımlaToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.tarifeTanımlaToolStripMenuItem.Text = "Tarife Tanımla";
+            this.defineScheduleToolStripMenuItem.Name = "defineScheduleToolStripMenuItem";
+            this.defineScheduleToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.defineScheduleToolStripMenuItem.Text = "Tarife Tanımla";
+            this.defineScheduleToolStripMenuItem.Click += new System.EventHandler(this.defineScheduleToolStripMenuItem_Click);
             // 
             // araçGirişÇıkışToolStripMenuItem
             // 
             this.araçGirişÇıkışToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.araçGirişiEkleToolStripMenuItem,
+            this.insertParkingEntryToolStripMenuItem,
             this.araçÇıkışıVeÜcretlendirmeToolStripMenuItem});
             this.araçGirişÇıkışToolStripMenuItem.Name = "araçGirişÇıkışToolStripMenuItem";
             this.araçGirişÇıkışToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
             this.araçGirişÇıkışToolStripMenuItem.Text = "Araç Giriş/Çıkış";
             // 
-            // araçGirişiEkleToolStripMenuItem
+            // insertParkingEntryToolStripMenuItem
             // 
-            this.araçGirişiEkleToolStripMenuItem.Name = "araçGirişiEkleToolStripMenuItem";
-            this.araçGirişiEkleToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
-            this.araçGirişiEkleToolStripMenuItem.Text = "Araç Girişi Ekle";
+            this.insertParkingEntryToolStripMenuItem.Name = "insertParkingEntryToolStripMenuItem";
+            this.insertParkingEntryToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.insertParkingEntryToolStripMenuItem.Text = "Araç Girişi Ekle";
+            this.insertParkingEntryToolStripMenuItem.Click += new System.EventHandler(this.insertParkingEntryToolStripMenuItem_Click);
             // 
             // araçÇıkışıVeÜcretlendirmeToolStripMenuItem
             // 
@@ -143,23 +145,23 @@
             this.aylıkOtoparkKazançRaporuToolStripMenuItem.Size = new System.Drawing.Size(351, 22);
             this.aylıkOtoparkKazançRaporuToolStripMenuItem.Text = "Aylık Otopark Kazanç Raporu";
             // 
-            // panel1
+            // pnlMain
             // 
-            this.panel1.Location = new System.Drawing.Point(51, 60);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(666, 378);
-            this.panel1.TabIndex = 1;
+            this.pnlMain.Location = new System.Drawing.Point(51, 60);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(666, 552);
+            this.pnlMain.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(800, 628);
+            this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Otopark Yönetim Sistemi";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -173,16 +175,16 @@
         private System.Windows.Forms.ToolStripMenuItem tanımlamalarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem defineSubscriberInfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createSubscriptionsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tarifeTanımlaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem defineScheduleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem araçGirişÇıkışToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem araçGirişiEkleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem insertParkingEntryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem araçÇıkışıVeÜcretlendirmeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem raporlarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem birPlakayaAitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem otoparktakiAraçlarıGösterenRaporToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aktifOlarakAboneliğiDevamEdenAbonelerRaporuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aylıkOtoparkKazançRaporuToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Panel pnlMain;
     }
 }
 

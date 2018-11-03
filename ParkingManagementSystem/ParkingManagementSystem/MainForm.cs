@@ -14,34 +14,57 @@ namespace ParkingManagementSystem
 {
     public partial class MainForm : Form
     {
+        #region Ctor
         public MainForm()
         {
             InitializeComponent();
-        }
-
+        } 
+        #endregion
 
         #region Events
         private void defineSubscriberInfoToolStripMenuMenuItem_Click(object sender, EventArgs e)
         {
-            //foreach (Control control in panel1.Controls)
-            //{
-            //    control.Dispose();
-            //}
-            //UserControl1 usercontrol1 = new UserControl1();
-            //panel1.Controls.Add(usercontrol1);
-
-            foreach (Control control in panel1.Controls)
-            {
-                control.Dispose();
-            }
-            DefinitionSubscriberInfo definitionSubscriberInfo = new DefinitionSubscriberInfo();
-            panel1.Controls.Add(definitionSubscriberInfo);
+            ClearPanel();
+            DefinitionSubscriberInfoUserControl definitionSubscriberInfo = new DefinitionSubscriberInfoUserControl();
+            pnlMain.Controls.Add(definitionSubscriberInfo);
         }
-        #endregion
 
         private void createSubscriptionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+            ClearPanel();
+            CreateSubscriptionsUserControl createSubscriptions = new CreateSubscriptionsUserControl();
+            pnlMain.Controls.Add(createSubscriptions);
+
         }
+
+        private void defineScheduleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClearPanel();
+            DefineScheduleUserControl defineSchedule = new DefineScheduleUserControl();
+            pnlMain.Controls.Add(defineSchedule);
+        }
+
+        private void insertParkingEntryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RefreshParkingAreas();
+        }
+        #endregion
+
+        #region Methods
+        void ClearPanel()
+        {
+            foreach (Control control in pnlMain.Controls)
+            {
+                control.Dispose();
+            }
+        }
+
+        public void RefreshParkingAreas()
+        {
+            ClearPanel();
+            CarParkingUserControl carParkingUserControl = new CarParkingUserControl();
+            pnlMain.Controls.Add(carParkingUserControl);
+        }
+        #endregion
     }
 }

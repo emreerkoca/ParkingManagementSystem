@@ -1,6 +1,6 @@
 ﻿namespace ParkingManagementSystem.UserControls
 {
-    partial class DefinitionSubscriberInfo
+    partial class DefinitionSubscriberInfoUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -40,8 +40,6 @@
             this.txtProvince = new System.Windows.Forms.TextBox();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.lblPhone = new System.Windows.Forms.Label();
-            this.lblSaveDate = new System.Windows.Forms.Label();
-            this.dtPickerRegistrationDate = new System.Windows.Forms.DateTimePicker();
             this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -141,25 +139,9 @@
             this.lblPhone.TabIndex = 10;
             this.lblPhone.Text = "Telefon:";
             // 
-            // lblSaveDate
-            // 
-            this.lblSaveDate.AutoSize = true;
-            this.lblSaveDate.Location = new System.Drawing.Point(9, 254);
-            this.lblSaveDate.Name = "lblSaveDate";
-            this.lblSaveDate.Size = new System.Drawing.Size(62, 13);
-            this.lblSaveDate.TabIndex = 12;
-            this.lblSaveDate.Text = "Kayıt Tarihi:";
-            // 
-            // dtPickerRegistrationDate
-            // 
-            this.dtPickerRegistrationDate.Location = new System.Drawing.Point(90, 248);
-            this.dtPickerRegistrationDate.Name = "dtPickerRegistrationDate";
-            this.dtPickerRegistrationDate.Size = new System.Drawing.Size(203, 20);
-            this.dtPickerRegistrationDate.TabIndex = 13;
-            // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(218, 288);
+            this.btnSave.Location = new System.Drawing.Point(127, 254);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 14;
@@ -172,8 +154,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.dtPickerRegistrationDate);
-            this.Controls.Add(this.lblSaveDate);
             this.Controls.Add(this.txtPhoneNumber);
             this.Controls.Add(this.lblPhone);
             this.Controls.Add(this.txtProvince);
@@ -187,7 +167,7 @@
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.lblName);
             this.Name = "DefinitionSubscriberInfo";
-            this.Size = new System.Drawing.Size(322, 353);
+            this.Size = new System.Drawing.Size(273, 353);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,8 +187,6 @@
         private System.Windows.Forms.TextBox txtProvince;
         private System.Windows.Forms.TextBox txtPhoneNumber;
         private System.Windows.Forms.Label lblPhone;
-        private System.Windows.Forms.Label lblSaveDate;
-        private System.Windows.Forms.DateTimePicker dtPickerRegistrationDate;
         private System.Windows.Forms.Button btnSave;
     }
 }

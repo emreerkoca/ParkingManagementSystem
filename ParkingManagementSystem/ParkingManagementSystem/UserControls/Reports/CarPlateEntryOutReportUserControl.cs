@@ -14,13 +14,16 @@ namespace ParkingManagementSystem.UserControls.Reports
 {
     public partial class CarPlateEntryOutReportUserControl : UserControl
     {
+        #region Fields
         List<CarParkingInfo> carParkingInfoList = new List<CarParkingInfo>();
-
+        #endregion
+        #region Ctor
         public CarPlateEntryOutReportUserControl()
         {
             InitializeComponent();
         }
-
+        #endregion
+        #region Methods
         List<CarParkingInfo> GetCarParkingInfoListByCarPlate(string carPlate)
         {
             try
@@ -35,11 +38,12 @@ namespace ParkingManagementSystem.UserControls.Reports
                 return null;
             }
         }
-
+        #endregion
+        #region Events
         private void printDocCarPlateEntryOutReport_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             int y = 50;
-            
+
             //This part sets up the data to be printed
             Graphics g = e.Graphics;
             SolidBrush Brush = new SolidBrush(Color.Black);
@@ -74,6 +78,7 @@ namespace ParkingManagementSystem.UserControls.Reports
         {
             carParkingInfoList = GetCarParkingInfoListByCarPlate(txtCarPlate.Text);
             printPreviewDialog.ShowDialog();
-        }
+        } 
+        #endregion
     }
 }

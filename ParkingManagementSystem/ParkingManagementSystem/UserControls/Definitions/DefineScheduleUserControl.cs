@@ -14,6 +14,7 @@ namespace ParkingManagementSystem.UserControls
 {
     public partial class DefineScheduleUserControl : UserControl
     {
+        #region Ctor
         public DefineScheduleUserControl()
         {
             InitializeComponent();
@@ -26,7 +27,8 @@ namespace ParkingManagementSystem.UserControls
             dtPickerLastHour.CustomFormat = "HH:mm:ss tt";
             dtPickerLastHour.ShowUpDown = true;
         }
-
+        #endregion
+        #region Events
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -47,6 +49,7 @@ namespace ParkingManagementSystem.UserControls
             {
                 Log.AddExceptionLog(ex);
             }
-        }
+        } 
+        #endregion
     }
 }

@@ -14,8 +14,6 @@ namespace ParkingManagementSystem.UserControls
 {
     public partial class CreateSubscriptionsUserControl : UserControl
     {
-        
-
         #region Ctor
         public CreateSubscriptionsUserControl()
         {
@@ -25,7 +23,6 @@ namespace ParkingManagementSystem.UserControls
             subscriberInfo.GetSubscriberInfos(cmbBoxUsers);
         }
         #endregion
-
         #region Events
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -37,6 +34,7 @@ namespace ParkingManagementSystem.UserControls
                 subscriptions.EndDate = dtPickerEndDate.Value;
                 subscriptions.SubscriberPrice = 50;
                 subscriptions.RegistrationDate = DateTime.Now;
+                subscriptions.IsActive = 1;
 
                 ParkingManagementBLL parkingManagementBLL = new ParkingManagementBLL();
                 parkingManagementBLL.InsertSubscription(subscriptions);
@@ -55,7 +53,5 @@ namespace ParkingManagementSystem.UserControls
         }
 
         #endregion
-
-       
     }
 }

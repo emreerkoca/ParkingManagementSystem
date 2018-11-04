@@ -14,5 +14,6 @@ namespace ParkingManagementSystem.Helpers
         public DateTime EndDate { get; set; }
         public float SubscriberPrice { get; set; }
         public DateTime RegistrationDate { get; set; }
+        public int IsActive { get; set; }
     }
 }

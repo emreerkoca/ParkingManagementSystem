@@ -17,7 +17,7 @@ namespace ParkingManagementSystem.UserControls
         int locationInfo;
         List<int> locationInfoList;
         #endregion
-
+        #region Ctor
         public CarParkingUserControl()
         {
             InitializeComponent();
@@ -25,47 +25,13 @@ namespace ParkingManagementSystem.UserControls
             CreateCarParkingAreas();
 
         }
-
-        void CreateCarParkingAreas()
-        {
-            int x = 50;
-            int y = 50;
-
-
-            for (int i = 1; i <= 40; i++)
-            {
-                Button button = new Button();
-                button.Left = x;
-                button.Top = y;
-                button.Width = 100;
-                button.Height = 40;
-                button.BackColor = Color.Green;
-                button.ForeColor = Color.White;
-               
-                button.Text = "P - " + i.ToString();
-                button.Name = i.ToString();
-                button.ContextMenuStrip = carParkingMenuStrip;
-                if (locationInfoList.Contains(i))
-                {
-                    button.BackColor = Color.Red;
-                }
-                button.Click += new EventHandler(ButtonClick);
-                this.Controls.Add(button);
-                x += button.Width + 10;
-                if(i % 5 == 0)
-                {
-                    y += button.Height + 10;
-                    x = 50;
-                }
-            }
-        }
-
-
+        #endregion
+        #region Events
         void ButtonClick(object sender, EventArgs e)
         {
             //MessageBox.Show((sender as Button).Name.ToString());
             locationInfo = Convert.ToInt32((sender as Button).Name);
-            if(locationInfoList.Contains(locationInfo))
+            if (locationInfoList.Contains(locationInfo))
             {
                 carParkingEntryToolStripMenuItem.Visible = false;
                 carParkingOutToolStripMenuItem.Visible = true;
@@ -83,7 +49,7 @@ namespace ParkingManagementSystem.UserControls
         private void carParkingEntryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CarParkingEntryForm carParkingEntryForm = new CarParkingEntryForm();
-            carParkingEntryForm.FormClosed += new FormClosedEventHandler(Form_Closed); 
+            carParkingEntryForm.FormClosed += new FormClosedEventHandler(Form_Closed);
             carParkingEntryForm.locationInfo = locationInfo;
             carParkingEntryForm.Show();
         }
@@ -94,12 +60,6 @@ namespace ParkingManagementSystem.UserControls
             ((MainForm)mainForm).RefreshParkingAreas();
         }
 
-        public List<int> GetLocationInfoList()
-        {
-            ParkingManagementBLL parkingManagementBLL = new ParkingManagementBLL();
-            return parkingManagementBLL.GetLocationInfoList();
-        }
-
         private void carParkingOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CarParkingOutForm carParkingOutForm = new CarParkingOutForm();
@@ -108,6 +68,48 @@ namespace ParkingManagementSystem.UserControls
             //carParkingOutForm.locationInfo = locationInfo;
             carParkingOutForm.Show();
         }
+        #endregion
+        #region Methods
+        void CreateCarParkingAreas()
+        {
+            int x = 50;
+            int y = 50;
+
+
+            for (int i = 1; i <= 40; i++)
+            {
+                Button button = new Button();
+                button.Left = x;
+                button.Top = y;
+                button.Width = 100;
+                button.Height = 40;
+                button.BackColor = Color.Green;
+                button.ForeColor = Color.White;
+
+                button.Text = "P - " + i.ToString();
+                button.Name = i.ToString();
+                button.ContextMenuStrip = carParkingMenuStrip;
+                if (locationInfoList.Contains(i))
+                {
+                    button.BackColor = Color.Red;
+                }
+                button.Click += new EventHandler(ButtonClick);
+                this.Controls.Add(button);
+                x += button.Width + 10;
+                if (i % 5 == 0)
+                {
+                    y += button.Height + 10;
+                    x = 50;
+                }
+            }
+        }
+
+        public List<int> GetLocationInfoList()
+        {
+            ParkingManagementBLL parkingManagementBLL = new ParkingManagementBLL();
+            return parkingManagementBLL.GetLocationInfoList();
+        }
+        #endregion
     }
 
 }

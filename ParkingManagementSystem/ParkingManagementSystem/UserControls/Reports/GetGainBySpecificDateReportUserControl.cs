@@ -13,16 +13,20 @@ namespace ParkingManagementSystem.UserControls.Reports
 {
     public partial class GetGainBySpecificDateReportUserControl : UserControl
     {
+        #region Fields
         float totalPrice = 0;
+        #endregion
+        #region Ctor
         public GetGainBySpecificDateReportUserControl()
         {
             InitializeComponent();
         }
-
+        #endregion
+        #region Events
         private void btnViewGainReport_Click(object sender, EventArgs e)
         {
             ParkingManagementBLL parkingManagementBLL = new ParkingManagementBLL();
-            totalPrice = parkingManagementBLL.GetGainBySpecificDate(dtPickerBeginDate.Value,dtPickerEndDate.Value);
+            totalPrice = parkingManagementBLL.GetGainBySpecificDate(dtPickerBeginDate.Value, dtPickerEndDate.Value);
             printPreviewDialogGain.ShowDialog();
         }
 
@@ -40,14 +44,15 @@ namespace ParkingManagementSystem.UserControls.Reports
             g.DrawString("Toplam Kazanç", new Font("arial", 14, FontStyle.Bold), Brush, 30, 50);
             g.DrawString("Başlangıç Tarihi", new Font("arial", 14, FontStyle.Bold), Brush, 180, 50);
             g.DrawString("Bitiş Tarihi", new Font("arial", 14, FontStyle.Bold), Brush, 340, 50);
-           
+
             g.DrawLine(blackPen, new Point(30, 80), new Point(450, 80));
 
 
             g.DrawString(totalPrice.ToString(), new Font("arial", 14, FontStyle.Bold), Brush, 30, 90);
             g.DrawString(dtPickerBeginDate.Value.ToShortDateString(), new Font("arial", 14, FontStyle.Bold), Brush, 180, 90);
             g.DrawString(dtPickerEndDate.Value.ToShortDateString(), new Font("arial", 14, FontStyle.Bold), Brush, 340, 90);
-            
-        }
+
+        } 
+        #endregion
     }
 }

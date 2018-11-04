@@ -25,6 +25,7 @@ namespace ParkingManagementSystem
         public MainForm()
         {
             InitializeComponent();
+            RefreshParkingAreas();
         } 
         #endregion
 
@@ -55,24 +56,6 @@ namespace ParkingManagementSystem
         {
             RefreshParkingAreas();
         }
-        #endregion
-
-        #region Methods
-        void ClearPanel()
-        {
-            foreach (Control control in pnlMain.Controls)
-            {
-                control.Dispose();
-            }
-        }
-
-        public void RefreshParkingAreas()
-        {
-            ClearPanel();
-            CarParkingUserControl carParkingUserControl = new CarParkingUserControl();
-            pnlMain.Controls.Add(carParkingUserControl);
-        }
-        #endregion
 
         private void carPlateEntryOutReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -112,7 +95,7 @@ namespace ParkingManagementSystem
             {
                 y += 40;
                 g.DrawString(carParkingInfo.CarPlate, new Font("arial", 14, FontStyle.Bold), Brush, 30, y);
-                g.DrawString( "P - " + carParkingInfo.LocationInfo.ToString(), new Font("arial", 14, FontStyle.Bold), Brush, 150, y);
+                g.DrawString("P - " + carParkingInfo.LocationInfo.ToString(), new Font("arial", 14, FontStyle.Bold), Brush, 150, y);
                 g.DrawString(carParkingInfo.EntryDate.ToShortDateString(), new Font("arial", 14, FontStyle.Bold), Brush, 270, y);
                 g.DrawString(carParkingInfo.ScheduleName, new Font("arial", 14, FontStyle.Bold), Brush, 390, y);
                 g.DrawString(carParkingInfo.SubscriberName, new Font("arial", 14, FontStyle.Bold), Brush, 510, y);
@@ -163,5 +146,23 @@ namespace ParkingManagementSystem
             GetGainBySpecificDateReportUserControl getGainBySpecificDateReportUserControl = new GetGainBySpecificDateReportUserControl();
             pnlMain.Controls.Add(getGainBySpecificDateReportUserControl);
         }
+        #endregion
+
+        #region Methods
+        void ClearPanel()
+        {
+            foreach (Control control in pnlMain.Controls)
+            {
+                control.Dispose();
+            }
+        }
+
+        public void RefreshParkingAreas()
+        {
+            ClearPanel();
+            CarParkingUserControl carParkingUserControl = new CarParkingUserControl();
+            pnlMain.Controls.Add(carParkingUserControl);
+        }
+        #endregion
     }
 }

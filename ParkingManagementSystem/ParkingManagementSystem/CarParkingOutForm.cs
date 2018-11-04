@@ -21,13 +21,15 @@ namespace ParkingManagementSystem
         private float totalPrice;
         private float stayTime;
         #endregion
+        #region Ctor
         public CarParkingOutForm()
         {
             InitializeComponent();
 
-            
-        }
 
+        }
+        #endregion
+        #region Events
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -48,13 +50,6 @@ namespace ParkingManagementSystem
             }
         }
 
-        public void GetCarParkingInfo(int locationInfo)
-        {
-            carParkingInfo = parkingManagementBLL.GetCarParkingInfo(locationInfo);
-            dtPickerEntryDate.Value = carParkingInfo.EntryDate;
-            dtPickerOutDate.MinDate = carParkingInfo.EntryDate;
-        }
-
         private void dtPickerOutDate_ValueChanged(object sender, EventArgs e)
         {
             TimeSpan timeDifferent = dtPickerOutDate.Value - dtPickerEntryDate.Value;
@@ -63,5 +58,14 @@ namespace ParkingManagementSystem
             txtStayTime.Text = stayTime.ToString();
             txtTotalPrice.Text = totalPrice.ToString();
         }
+        #endregion
+        #region Methods
+        public void GetCarParkingInfo(int locationInfo)
+        {
+            carParkingInfo = parkingManagementBLL.GetCarParkingInfo(locationInfo);
+            dtPickerEntryDate.Value = carParkingInfo.EntryDate;
+            dtPickerOutDate.MinDate = carParkingInfo.EntryDate;
+        }
+        #endregion
     }
 }

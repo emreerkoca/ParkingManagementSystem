@@ -18,17 +18,18 @@ namespace ParkingManagementSystem
         List<ScheduleInfo> scheduleInfoList = new List<ScheduleInfo>();
         public int locationInfo;
         #endregion
-
+        #region Ctor
         public CarParkingEntryForm()
         {
             InitializeComponent();
             #region Get Users and Schedules
             SubscriberInfo subscriberInfo = new SubscriberInfo();
             subscriberInfo.GetSubscriberInfos(cmbBoxUsers);
-            GetSchedules(); 
+            GetSchedules();
             #endregion
         }
-
+        #endregion
+        #region Events
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -66,8 +67,8 @@ namespace ParkingManagementSystem
             lblLastHour.Text = scheduleInfo.LastHour;
 
             grpBoxScheduleInfo.Visible = true;
-        }
-
+        } 
+        #endregion
         #region Methods
         #region GetSchedules
         void GetSchedules()

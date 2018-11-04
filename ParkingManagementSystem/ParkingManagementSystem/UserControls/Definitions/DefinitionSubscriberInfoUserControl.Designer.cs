@@ -41,12 +41,13 @@
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.lblPhone = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(45, 52);
+            this.lblName.Location = new System.Drawing.Point(45, 56);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(23, 13);
             this.lblName.TabIndex = 0;
@@ -55,7 +56,7 @@
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(31, 82);
+            this.lblLastName.Location = new System.Drawing.Point(31, 86);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(40, 13);
             this.lblLastName.TabIndex = 1;
@@ -64,7 +65,7 @@
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(31, 117);
+            this.lblAddress.Location = new System.Drawing.Point(31, 121);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(37, 13);
             this.lblAddress.TabIndex = 2;
@@ -73,7 +74,7 @@
             // lblDistrict
             // 
             this.lblDistrict.AutoSize = true;
-            this.lblDistrict.Location = new System.Drawing.Point(41, 148);
+            this.lblDistrict.Location = new System.Drawing.Point(41, 152);
             this.lblDistrict.Name = "lblDistrict";
             this.lblDistrict.Size = new System.Drawing.Size(27, 13);
             this.lblDistrict.TabIndex = 3;
@@ -82,7 +83,7 @@
             // lblProvince
             // 
             this.lblProvince.AutoSize = true;
-            this.lblProvince.Location = new System.Drawing.Point(53, 180);
+            this.lblProvince.Location = new System.Drawing.Point(53, 184);
             this.lblProvince.Name = "lblProvince";
             this.lblProvince.Size = new System.Drawing.Size(15, 13);
             this.lblProvince.TabIndex = 4;
@@ -90,42 +91,42 @@
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(90, 49);
+            this.txtFirstName.Location = new System.Drawing.Point(90, 53);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(112, 20);
             this.txtFirstName.TabIndex = 5;
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(90, 82);
+            this.txtLastName.Location = new System.Drawing.Point(90, 86);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(112, 20);
             this.txtLastName.TabIndex = 6;
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(90, 114);
+            this.txtAddress.Location = new System.Drawing.Point(90, 118);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(112, 20);
             this.txtAddress.TabIndex = 7;
             // 
             // txtDistrict
             // 
-            this.txtDistrict.Location = new System.Drawing.Point(90, 145);
+            this.txtDistrict.Location = new System.Drawing.Point(90, 149);
             this.txtDistrict.Name = "txtDistrict";
             this.txtDistrict.Size = new System.Drawing.Size(112, 20);
             this.txtDistrict.TabIndex = 8;
             // 
             // txtProvince
             // 
-            this.txtProvince.Location = new System.Drawing.Point(90, 176);
+            this.txtProvince.Location = new System.Drawing.Point(90, 180);
             this.txtProvince.Name = "txtProvince";
             this.txtProvince.Size = new System.Drawing.Size(112, 20);
             this.txtProvince.TabIndex = 9;
             // 
             // txtPhoneNumber
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(90, 211);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(90, 215);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(112, 20);
             this.txtPhoneNumber.TabIndex = 11;
@@ -133,7 +134,7 @@
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
-            this.lblPhone.Location = new System.Drawing.Point(22, 214);
+            this.lblPhone.Location = new System.Drawing.Point(22, 218);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(46, 13);
             this.lblPhone.TabIndex = 10;
@@ -141,7 +142,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(127, 254);
+            this.btnSave.Location = new System.Drawing.Point(127, 258);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 14;
@@ -149,10 +150,21 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // DefinitionSubscriberInfo
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(53, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(160, 16);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Abone Bilgisi Tanımla";
+            // 
+            // DefinitionSubscriberInfoUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtPhoneNumber);
             this.Controls.Add(this.lblPhone);
@@ -166,7 +178,7 @@
             this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.lblName);
-            this.Name = "DefinitionSubscriberInfo";
+            this.Name = "DefinitionSubscriberInfoUserControl";
             this.Size = new System.Drawing.Size(273, 353);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -188,5 +200,6 @@
         private System.Windows.Forms.TextBox txtPhoneNumber;
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Label label1;
     }
 }

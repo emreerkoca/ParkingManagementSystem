@@ -78,7 +78,8 @@ namespace ParkingManagementSystem.DAL
                     new SqlParameter("@BeginDate",subscription.BeginDate),
                     new SqlParameter("@EndDate", subscription.EndDate),
                     new SqlParameter("@SubscriberPrice", subscription.SubscriberPrice),
-                    new SqlParameter("@RegistrationDate", subscription.RegistrationDate)
+                    new SqlParameter("@RegistrationDate", subscription.RegistrationDate),
+                    new SqlParameter("@IsActive", subscription.IsActive)
                 };
 
                 sqlCommand.Parameters.AddRange(spParameters);

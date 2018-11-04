@@ -14,11 +14,13 @@ namespace ParkingManagementSystem.UserControls
 {
     public partial class DefinitionSubscriberInfoUserControl : UserControl
     {
+        #region Ctor
         public DefinitionSubscriberInfoUserControl()
         {
             InitializeComponent();
         }
-
+        #endregion
+        #region Events
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -38,7 +40,7 @@ namespace ParkingManagementSystem.UserControls
                 MessageBox.Show("Kayıt başarılı!");
                 ClearPanel();
 
-                
+
             }
             catch (Exception ex)
             {
@@ -46,7 +48,8 @@ namespace ParkingManagementSystem.UserControls
                 MessageBox.Show("Kayıt eklenemedi!");
             }
         }
-
+        #endregion
+        #region Methods
         void ClearPanel()
         {
             foreach (Control control in this.Controls)
@@ -56,6 +59,7 @@ namespace ParkingManagementSystem.UserControls
                     ((TextBox)control).Text = string.Empty;
                 }
             }
-        }
+        } 
+        #endregion
     }
 }

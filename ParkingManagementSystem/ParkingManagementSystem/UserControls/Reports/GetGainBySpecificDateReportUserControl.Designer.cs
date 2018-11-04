@@ -84,10 +84,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(163, 28);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(192, 32);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(152, 24);
+            this.label3.Size = new System.Drawing.Size(113, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "Kazanç Raporu";
             // 
@@ -106,7 +106,7 @@
             // 
             this.printDocGain.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocGain_PrintPage);
             // 
-            // MonthlyGainReportUserControl
+            // GetGainBySpecificDateReportUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -116,7 +116,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dtPickerBeginDate);
             this.Controls.Add(this.label1);
-            this.Name = "MonthlyGainReportUserControl";
+            this.Name = "GetGainBySpecificDateReportUserControl";
             this.Size = new System.Drawing.Size(456, 363);
             this.ResumeLayout(false);
             this.PerformLayout();

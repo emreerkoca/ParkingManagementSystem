@@ -37,18 +37,19 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.lblScheduleName = new System.Windows.Forms.Label();
             this.txtScheduleName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // dtPickerFirstHour
             // 
-            this.dtPickerFirstHour.Location = new System.Drawing.Point(154, 73);
+            this.dtPickerFirstHour.Location = new System.Drawing.Point(160, 87);
             this.dtPickerFirstHour.Name = "dtPickerFirstHour";
             this.dtPickerFirstHour.Size = new System.Drawing.Size(123, 20);
             this.dtPickerFirstHour.TabIndex = 0;
             // 
             // dtPickerLastHour
             // 
-            this.dtPickerLastHour.Location = new System.Drawing.Point(154, 114);
+            this.dtPickerLastHour.Location = new System.Drawing.Point(160, 128);
             this.dtPickerLastHour.Name = "dtPickerLastHour";
             this.dtPickerLastHour.Size = new System.Drawing.Size(123, 20);
             this.dtPickerLastHour.TabIndex = 1;
@@ -56,7 +57,7 @@
             // lblFirstHour
             // 
             this.lblFirstHour.AutoSize = true;
-            this.lblFirstHour.Location = new System.Drawing.Point(75, 73);
+            this.lblFirstHour.Location = new System.Drawing.Point(81, 87);
             this.lblFirstHour.Name = "lblFirstHour";
             this.lblFirstHour.Size = new System.Drawing.Size(46, 13);
             this.lblFirstHour.TabIndex = 2;
@@ -65,7 +66,7 @@
             // lblLastHour
             // 
             this.lblLastHour.AutoSize = true;
-            this.lblLastHour.Location = new System.Drawing.Point(67, 114);
+            this.lblLastHour.Location = new System.Drawing.Point(73, 128);
             this.lblLastHour.Name = "lblLastHour";
             this.lblLastHour.Size = new System.Drawing.Size(54, 13);
             this.lblLastHour.TabIndex = 3;
@@ -74,7 +75,7 @@
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(85, 159);
+            this.lblPrice.Location = new System.Drawing.Point(91, 173);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(36, 13);
             this.lblPrice.TabIndex = 4;
@@ -82,14 +83,14 @@
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(154, 152);
+            this.txtPrice.Location = new System.Drawing.Point(160, 166);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(123, 20);
             this.txtPrice.TabIndex = 5;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(202, 192);
+            this.btnSave.Location = new System.Drawing.Point(208, 206);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 6;
@@ -100,7 +101,7 @@
             // lblScheduleName
             // 
             this.lblScheduleName.AutoSize = true;
-            this.lblScheduleName.Location = new System.Drawing.Point(75, 44);
+            this.lblScheduleName.Location = new System.Drawing.Point(81, 58);
             this.lblScheduleName.Name = "lblScheduleName";
             this.lblScheduleName.Size = new System.Drawing.Size(55, 13);
             this.lblScheduleName.TabIndex = 9;
@@ -108,15 +109,26 @@
             // 
             // txtScheduleName
             // 
-            this.txtScheduleName.Location = new System.Drawing.Point(154, 41);
+            this.txtScheduleName.Location = new System.Drawing.Point(160, 55);
             this.txtScheduleName.Name = "txtScheduleName";
             this.txtScheduleName.Size = new System.Drawing.Size(123, 20);
             this.txtScheduleName.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(124, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(156, 16);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Tarife Bilgisi Tanımla";
             // 
             // DefineScheduleUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtScheduleName);
             this.Controls.Add(this.lblScheduleName);
             this.Controls.Add(this.btnSave);
@@ -144,5 +156,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblScheduleName;
         private System.Windows.Forms.TextBox txtScheduleName;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -33,8 +33,35 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,11 +74,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\ParkingManagementBLL.cs" />
-    <Compile Include="CarEntryForm.cs">
+    <Compile Include="CarParkingEntryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CarEntryForm.Designer.cs">
-      <DependentUpon>CarEntryForm.cs</DependentUpon>
+    <Compile Include="CarParkingEntryForm.Designer.cs">
+      <DependentUpon>CarParkingEntryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CarParkingOutForm.cs">
       <SubType>Form</SubType>
@@ -62,6 +89,7 @@
     <Compile Include="DAL\ParkingManagementDAL.cs" />
     <Compile Include="Helpers\CarParkingInfo.cs" />
     <Compile Include="Helpers\ComboboxItem.cs" />
+    <Compile Include="Helpers\GainBySpecificDate.cs" />
     <Compile Include="Helpers\Log.cs" />
     <Compile Include="Helpers\ScheduleInfo.cs" />
     <Compile Include="Helpers\SubscriberInfo.cs" />
@@ -72,34 +100,65 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControls\CarParkingUserControl.cs">
+    <Compile Include="spGetCarParkingInfo_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="UserControls\CarParking\CarParkingUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\CarParkingUserControl.Designer.cs">
+    <Compile Include="UserControls\CarParking\CarParkingUserControl.Designer.cs">
       <DependentUpon>CarParkingUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\CreateSubscriptionsUserControl.cs">
+    <Compile Include="UserControls\Definitions\CreateSubscriptionsUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\CreateSubscriptionsUserControl.Designer.cs">
+    <Compile Include="UserControls\Definitions\CreateSubscriptionsUserControl.Designer.cs">
       <DependentUpon>CreateSubscriptionsUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\DefineScheduleUserControl.cs">
+    <Compile Include="UserControls\Definitions\DefineScheduleUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\DefineScheduleUserControl.Designer.cs">
+    <Compile Include="UserControls\Definitions\DefineScheduleUserControl.Designer.cs">
       <DependentUpon>DefineScheduleUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\DefinitionSubscriberInfoUserControl.cs">
+    <Compile Include="UserControls\Definitions\DefinitionSubscriberInfoUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\DefinitionSubscriberInfoUserControl.Designer.cs">
+    <Compile Include="UserControls\Definitions\DefinitionSubscriberInfoUserControl.Designer.cs">
       <DependentUpon>DefinitionSubscriberInfoUserControl.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CarEntryForm.resx">
-      <DependentUpon>CarEntryForm.cs</DependentUpon>
+    <Compile Include="UserControls\Reports\CarPlateEntryOutReportUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Reports\CarPlateEntryOutReportUserControl.Designer.cs">
+      <DependentUpon>CarPlateEntryOutReportUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Reports\GetGainBySpecificDateReportUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Reports\GetGainBySpecificDateReportUserControl.Designer.cs">
+      <DependentUpon>GetGainBySpecificDateReportUserControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CarParkingEntryForm.resx">
+      <DependentUpon>CarParkingEntryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CarParkingOutForm.resx">
       <DependentUpon>CarParkingOutForm.cs</DependentUpon>
@@ -116,18 +175,32 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserControls\CarParkingUserControl.resx">
+    <EmbeddedResource Include="UserControls\CarParking\CarParkingUserControl.resx">
       <DependentUpon>CarParkingUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\CreateSubscriptionsUserControl.resx">
+    <EmbeddedResource Include="UserControls\Definitions\CreateSubscriptionsUserControl.resx">
       <DependentUpon>CreateSubscriptionsUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\DefineScheduleUserControl.resx">
+    <EmbeddedResource Include="UserControls\Definitions\DefineScheduleUserControl.resx">
       <DependentUpon>DefineScheduleUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\DefinitionSubscriberInfoUserControl.resx">
+    <EmbeddedResource Include="UserControls\Definitions\DefinitionSubscriberInfoUserControl.resx">
       <DependentUpon>DefinitionSubscriberInfoUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Reports\CarPlateEntryOutReportUserControl.resx">
+      <DependentUpon>CarPlateEntryOutReportUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Reports\GetGainBySpecificDateReportUserControl.resx">
+      <DependentUpon>GetGainBySpecificDateReportUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -142,5 +215,33 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

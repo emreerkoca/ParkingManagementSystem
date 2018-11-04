@@ -63,10 +63,40 @@ namespace ParkingManagementSystem.BLL
             return parkingManagementDAL.GetCarParkingInfo(locationInfo);
         }
 
+        public List<CarParkingInfo> GetCarParkingInfoListByCarPlate(string carPlate)
+        {
+            ParkingManagementDAL parkingManagementDAL = new ParkingManagementDAL();
+            return parkingManagementDAL.GetCarParkingInfoListByCarPlate(carPlate);
+        }
+
+        public List<CarParkingInfo> GetCarParkingInfoListForReport()
+        {
+            ParkingManagementDAL parkingManagementDAL = new ParkingManagementDAL();
+            return parkingManagementDAL.GetCarParkingInfoListForReport();
+        }
+
         public List<int> GetLocationInfoList()
         {
             ParkingManagementDAL parkingManagementDAL = new ParkingManagementDAL();
             return parkingManagementDAL.GetLocationInfoList();
+        }
+
+        public void ParkingOutGet(CarParkingInfo carParkingInfo)
+        {
+            ParkingManagementDAL parkingManagementDAL = new ParkingManagementDAL();
+            parkingManagementDAL.ParkingOutGet(carParkingInfo);
+        }
+
+        public List<SubscriberInfo> GetActiveSubscriberList()
+        {
+            ParkingManagementDAL parkingManagementDAL = new ParkingManagementDAL();
+            return parkingManagementDAL.GetActiveSubscriberList();
+        }
+
+        public float GetGainBySpecificDate(DateTime beginDate, DateTime endDate)
+        {
+            ParkingManagementDAL parkingManagementDAL = new ParkingManagementDAL();
+            return parkingManagementDAL.GetGainBySpecificDate(beginDate, endDate);
         }
     }
 }

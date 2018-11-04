@@ -12,14 +12,14 @@ using System.Windows.Forms;
 
 namespace ParkingManagementSystem
 {
-    public partial class CarEntryForm : Form
+    public partial class CarParkingEntryForm : Form
     {
         #region Fields
         List<ScheduleInfo> scheduleInfoList = new List<ScheduleInfo>();
         public int locationInfo;
         #endregion
 
-        public CarEntryForm()
+        public CarParkingEntryForm()
         {
             InitializeComponent();
             #region Get Users and Schedules
@@ -45,7 +45,6 @@ namespace ParkingManagementSystem
                 parkingManagementBLL.InsertCarParkingEntry(carParkingInfo);
                 MessageBox.Show("Araç girişi yapıldı!");
                 this.Close();
-                
             }
             catch (Exception ex)
             {

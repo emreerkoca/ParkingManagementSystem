@@ -82,10 +82,10 @@ namespace ParkingManagementSystem.UserControls
 
         private void carParkingEntryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CarEntryForm carEntryForm = new CarEntryForm();
-            carEntryForm.FormClosed += new FormClosedEventHandler(Form_Closed); 
-            carEntryForm.locationInfo = locationInfo;
-            carEntryForm.Show();
+            CarParkingEntryForm carParkingEntryForm = new CarParkingEntryForm();
+            carParkingEntryForm.FormClosed += new FormClosedEventHandler(Form_Closed); 
+            carParkingEntryForm.locationInfo = locationInfo;
+            carParkingEntryForm.Show();
         }
 
         void Form_Closed(object sender, FormClosedEventArgs e)

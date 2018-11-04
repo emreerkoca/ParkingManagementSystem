@@ -32,7 +32,14 @@ namespace ParkingManagementSystem
         {
             try
             {
-                
+                carParkingInfo.OutDate = dtPickerOutDate.Value;
+                carParkingInfo.StayTime = float.Parse(txtStayTime.Text);
+                carParkingInfo.TotalPrice = float.Parse(txtTotalPrice.Text);
+
+                ParkingManagementBLL parkingManagementBLL = new ParkingManagementBLL();
+                parkingManagementBLL.ParkingOutGet(carParkingInfo);
+                MessageBox.Show("Araç çıkışı yapıldı!");
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -44,6 +51,8 @@ namespace ParkingManagementSystem
         public void GetCarParkingInfo(int locationInfo)
         {
             carParkingInfo = parkingManagementBLL.GetCarParkingInfo(locationInfo);
+            dtPickerEntryDate.Value = carParkingInfo.EntryDate;
+            dtPickerOutDate.MinDate = carParkingInfo.EntryDate;
         }
 
         private void dtPickerOutDate_ValueChanged(object sender, EventArgs e)
@@ -51,6 +60,7 @@ namespace ParkingManagementSystem
             TimeSpan timeDifferent = dtPickerOutDate.Value - dtPickerEntryDate.Value;
             stayTime = (float)timeDifferent.Days + (float)timeDifferent.Hours / 24;
             totalPrice = stayTime * carParkingInfo.SchedulePrice;
+            txtStayTime.Text = stayTime.ToString();
             txtTotalPrice.Text = totalPrice.ToString();
         }
     }

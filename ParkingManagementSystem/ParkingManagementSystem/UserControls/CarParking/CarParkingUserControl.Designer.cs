@@ -32,6 +32,7 @@
             this.carParkingMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.carParkingEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.carParkingOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             this.carParkingMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,7 +42,7 @@
             this.carParkingEntryToolStripMenuItem,
             this.carParkingOutToolStripMenuItem});
             this.carParkingMenuStrip.Name = "carParkingMenuStrip";
-            this.carParkingMenuStrip.Size = new System.Drawing.Size(223, 70);
+            this.carParkingMenuStrip.Size = new System.Drawing.Size(223, 48);
             // 
             // carParkingEntryToolStripMenuItem
             // 
@@ -57,14 +58,26 @@
             this.carParkingOutToolStripMenuItem.Text = "Araç Çıkışı ve Ücretlendirme";
             this.carParkingOutToolStripMenuItem.Click += new System.EventHandler(this.carParkingOutToolStripMenuItem_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(231, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(154, 24);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Otopark Düzeni";
+            // 
             // CarParkingUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
             this.Name = "CarParkingUserControl";
             this.Size = new System.Drawing.Size(648, 517);
             this.carParkingMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -73,5 +86,6 @@
         private System.Windows.Forms.ContextMenuStrip carParkingMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem carParkingEntryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem carParkingOutToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
     }
 }

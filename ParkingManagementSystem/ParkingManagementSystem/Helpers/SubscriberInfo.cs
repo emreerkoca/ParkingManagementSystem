@@ -17,6 +17,7 @@ namespace ParkingManagementSystem.Helpers
         public string District { get; set; }
         public string Province { get; set; }
         public string PhoneNumber { get; set; }
+        public DateTime BeginDate { get; set; }
         public DateTime RegistrationDate { get; set; }
 
 

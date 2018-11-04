@@ -11,6 +11,7 @@ namespace ParkingManagementSystem.Helpers
         public int ID { get; set; }
         public int SubscriberID { get; set; }
         public int ScheduleID { get; set; }
+        public string ScheduleName { get; set; }
         public string CarPlate { get; set; }
         public DateTime EntryDate { get; set; }
         public DateTime OutDate { get; set; }
@@ -19,6 +20,7 @@ namespace ParkingManagementSystem.Helpers
         public float SchedulePrice { get; set; }
         public DateTime RegistrationDate { get; set; }
         public int LocationInfo { get; set; }
+        public string SubscriberName { get; set; }
         public int IsActive { get; set; }
     }
 }

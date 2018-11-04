@@ -54,13 +54,13 @@ namespace ParkingManagementSystem.DAL
                      new SqlParameter("@Price", scheduleInfo.Price),
                      new SqlParameter("@Active", scheduleInfo.IsActive),
                      new SqlParameter("@RegistrationDate", scheduleInfo.RegistrationDate)
-                    
+
                 };
 
                 sqlCommand.Parameters.AddRange(spParameters);
                 sqlCommand.ExecuteNonQuery();
             }
-             
+
         }
 
         public void InsertSubscription(Subscription subscription)
@@ -122,7 +122,7 @@ namespace ParkingManagementSystem.DAL
                 sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
 
                 SqlDataReader dr = sqlCommand.ExecuteReader();
-                while(dr.Read())
+                while (dr.Read())
                 {
                     subscriberInfoList.Add(
                         new SubscriberInfo
@@ -181,17 +181,80 @@ namespace ParkingManagementSystem.DAL
                 SqlCommand sqlCommand = new SqlCommand(spName, connection);
                 sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
 
-                sqlCommand.Parameters.Add(new SqlParameter("@LocationInfo",locationInfo));
+                sqlCommand.Parameters.Add(new SqlParameter("@LocationInfo", locationInfo));
                 SqlDataReader dr = sqlCommand.ExecuteReader();
-                if(dr.Read())
+                if (dr.Read())
                 {
+                    carParkingInfo.ID = Convert.ToInt32(dr["ID"]);
                     carParkingInfo.EntryDate = Convert.ToDateTime(dr["GIRIS_TARIHI"]);
                     carParkingInfo.SchedulePrice = float.Parse(dr["TARIFE_UCRETI"].ToString());
                 }
 
                 return carParkingInfo;
             }
-            
+
+        }
+
+        public List<CarParkingInfo> GetCarParkingInfoListByCarPlate(string carPlate)
+        {
+            List<CarParkingInfo> carParkingInfo = new List<CarParkingInfo>();
+
+            using (SqlConnection connection = new SqlConnection(connetionString))
+            {
+                connection.Open();
+                string spName = "spGetCarParkingInfoListByCarPlate";
+                SqlCommand sqlCommand = new SqlCommand(spName, connection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                sqlCommand.Parameters.Add(new SqlParameter("@CarPlate", carPlate));
+                SqlDataReader dr = sqlCommand.ExecuteReader();
+                while (dr.Read())
+                {
+                    carParkingInfo.Add(new CarParkingInfo
+                    {
+                        ID = Convert.ToInt32(dr["ID"]),
+                        SubscriberID = Convert.ToInt32(dr["ABONE_ID"]),
+                        CarPlate = dr["ARAC_PLAKA"].ToString(),
+                        EntryDate = Convert.ToDateTime(dr["GIRIS_TARIHI"]),
+                        OutDate = Convert.ToDateTime(dr["CIKIS_TARIHI"]),
+                        StayTime = float.Parse(dr["SURE"].ToString()),
+                        TotalPrice = float.Parse(dr["UCRET"].ToString()),
+                        ScheduleName = dr["TARIFE_ADI"].ToString(),
+                        SchedulePrice = float.Parse(dr["TARIFE_UCRETI"].ToString())
+                    });
+                }
+
+            }
+
+            return carParkingInfo;
+        }
+
+        public List<CarParkingInfo> GetCarParkingInfoListForReport()
+        {
+            List<CarParkingInfo> carParkingInfoList = new List<CarParkingInfo>();
+
+            using (SqlConnection connection = new SqlConnection(connetionString))
+            {
+                connection.Open();
+                string spName = "spGetCarParkingInfoListForReport";
+                SqlCommand sqlCommand = new SqlCommand(spName, connection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlDataReader dr = sqlCommand.ExecuteReader();
+                while (dr.Read())
+                {
+                    carParkingInfoList.Add(new CarParkingInfo
+                    {
+                        CarPlate = dr["ARAC_PLAKA"].ToString(),
+                        LocationInfo = Convert.ToInt32(dr["YER_BILGISI"]),
+                        EntryDate = Convert.ToDateTime(dr["GIRIS_TARIHI"].ToString()),
+                        ScheduleName = dr["TARIFE_ADI"].ToString(),
+                        SubscriberName = dr["ABONE_ADI"].ToString()
+                    });
+                }
+            }
+
+            return carParkingInfoList;
         }
 
         public List<int> GetLocationInfoList()
@@ -232,6 +295,84 @@ namespace ParkingManagementSystem.DAL
                 sqlCommand.Parameters.AddRange(spParameters);
                 sqlCommand.ExecuteNonQuery();
             }
+        }
+
+        public void ParkingOutGet(CarParkingInfo carParkingInfo)
+        {
+            using (SqlConnection connection = new SqlConnection(connetionString))
+            {
+                connection.Open();
+                string spName = "spParkingOutGet";
+                SqlCommand sqlCommand = new SqlCommand(spName, connection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlParameter[] spParameters = new SqlParameter[]
+                {
+                    new SqlParameter("@ID",carParkingInfo.ID),
+                    new SqlParameter("@OutDate",carParkingInfo.OutDate),
+                    new SqlParameter("@StayTime",carParkingInfo.StayTime),
+                    new SqlParameter("@TotalPrice", carParkingInfo.TotalPrice),
+                    new SqlParameter("@LocationInfo", carParkingInfo.LocationInfo)
+                };
+
+                sqlCommand.Parameters.AddRange(spParameters);
+                sqlCommand.ExecuteNonQuery();
+            }
+        }
+
+        public List<SubscriberInfo> GetActiveSubscriberList()
+        {
+            List<SubscriberInfo> subscriberInfoList = new List<SubscriberInfo>();
+            using (SqlConnection connection = new SqlConnection(connetionString))
+            {
+                connection.Open();
+                string spName = "spGetActiveSubscriberList";
+                SqlCommand sqlCommand = new SqlCommand(spName, connection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlDataReader dr = sqlCommand.ExecuteReader();
+                while (dr.Read())
+                {
+                    subscriberInfoList.Add(new SubscriberInfo
+                    {
+                        FirstName = dr["AD"].ToString(),
+                        LastName = dr["SOYAD"].ToString(),
+                        District = dr["ILCE"].ToString(),
+                        Province = dr["IL"].ToString(),
+                        PhoneNumber = dr["TELEFON"].ToString(),
+                        BeginDate = Convert.ToDateTime(dr["BASLANGIC_TARIHI"].ToString())
+                    });
+                }
+            }
+
+            return subscriberInfoList;
+        }
+
+        public float GetGainBySpecificDate(DateTime beginDate, DateTime endDate)
+        {
+            float totalPrice = 0;
+            using (SqlConnection connection = new SqlConnection(connetionString))
+            {
+                connection.Open();
+                string spName = "spGetGainBySpecificDate";
+                SqlCommand sqlCommand = new SqlCommand(spName, connection);
+                sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlParameter[] spParameters = new SqlParameter[]
+                {
+                    new SqlParameter("@BeginDate", beginDate),
+                    new SqlParameter("@EndDate", endDate)
+                };
+
+                sqlCommand.Parameters.AddRange(spParameters);
+                SqlDataReader dr = sqlCommand.ExecuteReader();
+                if(dr.Read())
+                {
+                    totalPrice = float.Parse(dr["TOPLAM_UCRET"].ToString());
+                }
+            }
+
+            return totalPrice;
         }
     }
 }

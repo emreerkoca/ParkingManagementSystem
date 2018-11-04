@@ -35,6 +35,8 @@
             this.txtTotalPrice = new System.Windows.Forms.TextBox();
             this.dtPickerEntryDate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtStayTime = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -67,7 +69,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(73, 93);
+            this.label2.Location = new System.Drawing.Point(73, 127);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(36, 13);
             this.label2.TabIndex = 3;
@@ -75,7 +77,7 @@
             // 
             // txtTotalPrice
             // 
-            this.txtTotalPrice.Location = new System.Drawing.Point(134, 93);
+            this.txtTotalPrice.Location = new System.Drawing.Point(134, 127);
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.ReadOnly = true;
             this.txtTotalPrice.Size = new System.Drawing.Size(200, 20);
@@ -98,11 +100,30 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Giriş Tarihi:";
             // 
+            // txtStayTime
+            // 
+            this.txtStayTime.Location = new System.Drawing.Point(134, 93);
+            this.txtStayTime.Name = "txtStayTime";
+            this.txtStayTime.ReadOnly = true;
+            this.txtStayTime.Size = new System.Drawing.Size(200, 20);
+            this.txtStayTime.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(57, 93);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(58, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Süre(Gün):";
+            // 
             // CarParkingOutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(383, 351);
+            this.Controls.Add(this.txtStayTime);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dtPickerEntryDate);
             this.Controls.Add(this.txtTotalPrice);
@@ -126,5 +147,7 @@
         private System.Windows.Forms.TextBox txtTotalPrice;
         private System.Windows.Forms.DateTimePicker dtPickerEntryDate;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtStayTime;
+        private System.Windows.Forms.Label label4;
     }
 }

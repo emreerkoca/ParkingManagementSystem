@@ -1,6 +1,6 @@
 ﻿namespace ParkingManagementSystem
 {
-    partial class CarEntryForm
+    partial class CarParkingEntryForm
     {
         /// <summary>
         /// Required designer variable.
